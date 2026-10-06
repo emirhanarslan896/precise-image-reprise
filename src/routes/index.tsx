@@ -130,11 +130,11 @@ function Index() {
   return (
     <div className="min-h-screen bg-background font-sans text-foreground antialiased">
       <Toaster />
-      <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-5">
-          <a href="/" className="flex items-center gap-2 font-semibold tracking-tight">
-            <span className="grid size-7 place-items-center rounded-md bg-primary text-primary-foreground">
-              <Layers className="size-4" />
+          <a href="/" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
+            <span className="grid size-7 place-items-center rounded-md bg-primary">
+              <span className="size-3 rotate-45 border-2 border-primary-foreground" />
             </span>
             OpenStack
           </a>
@@ -142,10 +142,10 @@ function Index() {
             <a href="#directory" className="hidden px-3 py-1.5 text-muted-foreground transition-colors hover:text-foreground sm:block">
               Browse Categories
             </a>
-            <button onClick={() => setSubmitOpen(true)} className="hidden rounded-full border border-accent/50 bg-accent/10 px-3 py-1 font-mono text-xs text-accent-foreground transition-colors hover:bg-accent/20 sm:block">
+            <button onClick={() => setSubmitOpen(true)} className="hidden rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground sm:block">
               Sponsor ($29)
             </button>
-            <button onClick={() => setSubmitOpen(true)} className="rounded-md bg-foreground px-3 py-1.5 font-medium text-background transition-opacity hover:opacity-90">
+            <button onClick={() => setSubmitOpen(true)} className="rounded-full bg-primary px-3.5 py-1.5 text-xs font-bold text-primary-foreground shadow-lg shadow-primary/25 transition-colors hover:bg-primary/90">
               Submit a Tool
             </button>
           </nav>
@@ -154,20 +154,22 @@ function Index() {
 
       <section className="bg-hero">
         <div className="mx-auto max-w-3xl px-5 pb-14 pt-20 text-center sm:pt-28">
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
-            <Sparkles className="size-3 text-primary" /> {TOOLS.length * 14}+ curated alternatives
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card px-3 py-1 text-xs text-muted-foreground">
+            <span className="size-1.5 animate-pulse rounded-full bg-accent" /> {TOOLS.length * 14}+ curated alternatives
           </span>
-          <h1 className="text-gradient mt-6 text-5xl font-semibold tracking-tighter sm:text-7xl">Stop Overpaying for SaaS.</h1>
+          <h1 className="mt-6 font-display text-5xl font-extrabold tracking-tight sm:text-7xl">
+            Stop <span className="text-primary">Overpaying</span> for SaaS.
+          </h1>
           <p className="mx-auto mt-5 max-w-xl text-balance text-lg text-muted-foreground">
             Discover top-rated free, open-source, and low-cost alternatives to expensive software. Save thousands every year.
           </p>
           <div className="relative mx-auto mt-10 max-w-2xl">
-            <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground" />
+            <Search className="pointer-events-none absolute left-4 top-1/2 size-5 -translate-y-1/2 text-muted-foreground/60" />
             <input
               value={q}
               onChange={(e) => setQ(e.target.value)}
               placeholder="Search tools or enter an expensive app (e.g. Typeform, Stan Store, Loom)..."
-              className="h-14 w-full rounded-xl border border-border bg-card pl-12 pr-12 text-base shadow-2xl outline-none transition-shadow placeholder:text-muted-foreground focus:shadow-glow"
+              className="h-14 w-full rounded-2xl border border-border bg-card pl-12 pr-12 text-base shadow-2xl shadow-black/20 outline-none transition-all placeholder:text-muted-foreground/50 focus:border-primary focus:ring-4 focus:ring-primary/10"
             />
             {q && (
               <button onClick={() => setQ("")} aria-label="Clear" className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
